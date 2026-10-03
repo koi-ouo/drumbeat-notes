@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark" style="color-scheme: dark;"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>舞獅鼓點筆記</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);--bg:#f6efe2;--bg2:#efe3cd;--card:#fffaf0;--fg:#2b1a14;--mut:#8a7565;--line:#dccdb5;--red:#b3261e;--gold:#a87a12;--drum:#b3261e;--cym:#a87a12;--hl:rgba(179,38,30,.13);--glow:rgba(179,38,30,.35)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150a0b;--bg2:#2a0f10;--card:#1f1112;--fg:#f5e9d6;--mut:#a38f7c;--line:#3d2625;--red:#e0463a;--gold:#e8b84a;--drum:#ff5a4a;--cym:#f0c24f;--hl:rgba(240,194,79,.14);--glow:rgba(240,194,79,.5)}}
+:root[data-theme="dark"]{--bg:#150a0b;--bg2:#2a0f10;--card:#1f1112;--fg:#f5e9d6;--mut:#a38f7c;--line:#3d2625;--red:#e0463a;--gold:#e8b84a;--drum:#ff5a4a;--cym:#f0c24f;--hl:rgba(240,194,79,.14);--glow:rgba(240,194,79,.5)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:radial-gradient(900px 400px at 50% -80px,var(--bg2),var(--bg));background-color:var(--bg);color:var(--fg);font-family:system-ui,"PingFang HK","Noto Sans TC",sans-serif;min-height:100vh}
+main{max-width:1000px;margin:0 auto;padding:20px 14px 110px}
+header{text-align:center;padding:18px 0 14px}
+h1{margin:0;font-family:"Noto Serif TC","Songti TC","Source Han Serif TC",serif;font-size:2.4rem;letter-spacing:.35em;text-indent:.35em;background:linear-gradient(180deg,var(--gold),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+header small{display:block;letter-spacing:.5em;font-size:.65rem;color:var(--mut);margin-top:6px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin:14px 0}
+button,select,input,textarea{font:inherit;color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+button{cursor:pointer;transition:.15s}
+button:hover{border-color:var(--gold)}
+.chip.a{background:linear-gradient(135deg,var(--red),#7d1710);border-color:transparent;color:#fff;box-shadow:0 2px 14px var(--glow)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+.title{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.title h2{margin:0;font-family:"Noto Serif TC","Songti TC",serif;font-size:1.6rem}
+.meta{color:var(--mut);font-size:.85rem;letter-spacing:.08em}
+.sys{display:grid;grid-template-columns:2.6rem repeat(var(--n),1fr);margin-bottom:22px;scroll-margin:40vh}
+.bh{grid-row:1;font-size:.7rem;color:var(--gold);letter-spacing:.2em;padding:0 0 4px 6px;border-left:2px solid var(--gold);align-self:end}
+.sl{font-size:.68rem;color:var(--mut);text-align:center;border-left:1px solid transparent;padding-bottom:2px}
+.sl.bt{color:var(--fg);font-weight:600;font-size:.8rem}
+.lab{display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-weight:700;color:var(--mut);border-top:1px solid var(--line)}
+.lab.dr{color:var(--drum)}.lab.cy{color:var(--cym)}
+.c{display:flex;align-items:center;justify-content:center;height:2.7rem;border-top:1px solid var(--line);cursor:pointer;user-select:none;position:relative}
+.c.t-drum{color:var(--drum)}.c.t-cym{color:var(--cym)}
+.c.bs{border-left:2px solid var(--gold)}
+.c.bt{border-left:1px solid var(--line)}
+.c:empty::after{content:"";width:3px;height:3px;border-radius:50%;background:var(--line)}
+.c svg{width:62%;max-width:24px;height:auto;transition:transform .12s,filter .12s}
+.c.on{background:var(--hl)}
+.c.on svg{transform:scale(1.4);filter:drop-shadow(0 0 7px currentColor)}
+.sl.on{color:var(--gold)}
+body.view .c{cursor:default}
+body.view .eo{display:none!important}
+.leg{display:flex;gap:18px;flex-wrap:wrap;font-size:.85rem;color:var(--mut)}
+.leg span{display:flex;align-items:center;gap:6px}.leg svg{width:16px}
+#tp{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--line);z-index:9}
+#tp .in{max-width:1000px;margin:0 auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center}
+#play{width:52px;height:52px;border-radius:50%;padding:0;font-size:1.2rem;color:#fff;background:linear-gradient(135deg,var(--red),#7d1710);border:none;box-shadow:0 0 18px var(--glow)}
+.tg{display:flex;align-items:center;gap:6px;font-size:.9rem;cursor:pointer;border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.tg input{display:none}.tg i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.tg input:checked+i{background:currentColor;box-shadow:0 0 8px currentColor}
+.tg.dr{color:var(--drum)}.tg.cy{color:var(--cym)}.tg span{color:var(--fg)}
+input[type=range]{accent-color:var(--red);padding:0;border:none;width:130px}
+input[type=number]{width:4.4rem;border-radius:8px}
+.st{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.st label{font-size:.85rem;color:var(--mut)}
+textarea{width:100%;box-sizing:border-box;border-radius:10px}
+#note{color:var(--mut);font-size:.9rem;margin:0 0 12px}
+dialog{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:14px;width:min(560px,92vw)}
+
+.part{margin-bottom:18px}
+.ph{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.ph h3{margin:0;font-family:"Noto Serif TC","Songti TC",serif;font-size:1.35rem}
+.ph .no{width:1.7rem;height:1.7rem;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem}
+.pl{box-shadow:0 0 0 1px var(--gold),0 0 22px var(--glow)}
+.mini{padding:3px 11px;font-size:.85rem}
+.kh{display:flex;align-items:center;gap:8px;margin:2px 0 4px;font-family:"Noto Serif TC",serif;color:var(--gold);font-size:1rem;border-bottom:1px solid var(--line);padding-bottom:2px}
+.kh b{cursor:default}
+body:not(.view) .kh b{cursor:pointer;border-bottom:1px dashed var(--gold)}
+body.cutting .c{cursor:crosshair}
+.c.bs{border-left:2px solid var(--gold)}
+.sys{margin-bottom:6px}
+.sc{font-size:.8rem;color:var(--mut)}
+.on-cut{background:var(--gold);color:#fff;border-color:var(--gold)}
+
+#top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);padding:8px 0;margin-bottom:10px}
+.trow{display:flex;gap:8px;align-items:center}
+#tabs{display:flex;gap:8px;overflow-x:auto;flex:1;padding:2px}
+#tabs button{white-space:nowrap;flex:none}
+#etb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
+#hint{font-size:.8rem;color:var(--gold)}
+.kn{background:var(--hl);border-left:3px solid var(--gold);padding:6px 10px;border-radius:6px;margin:8px 0 4px;font-size:.9rem;white-space:pre-wrap}
+.pn{margin:0 0 10px;color:var(--mut);font-size:.9rem}
+.c svg.roll{width:100%;max-width:none;height:20px}
+.c.on svg.roll{transform:scaleY(1.5)}
+body.view .kn{cursor:default}
+.leg{margin-bottom:14px}.leg i svg{width:16px;height:16px}
+dialog input,dialog textarea{border-radius:10px}
+.nrow{display:grid;grid-template-columns:2.6rem repeat(var(--n),1fr);row-gap:3px;margin-top:8px}
+.nt{background:var(--hl);border-left:3px solid var(--gold);font-size:.8rem;padding:2px 6px;border-radius:4px;min-width:0;line-height:1.3}
+.bh{padding-left:6px;color:var(--gold);font-size:.78rem;letter-spacing:.05em;margin-top:6px}
+body:not(.view) .bh,body:not(.view) .nt,body:not(.view) .kn{cursor:pointer}
+#pal{display:inline-flex;gap:6px;align-items:center}
+.pb{width:36px;height:36px;padding:5px;border-radius:10px;color:var(--drum)}.pb.t-cym{color:var(--cym)}
+.pb.sel{border-color:currentColor;background:var(--hl);box-shadow:0 0 8px currentColor}.pb svg{width:100%;height:100%}
+</style></head><body>
+<main>
+<header><h1>舞獅鼓譜</h1><small>LION DANCE DRUM SCORE</small></header>
+<div id="top">
+ <div class="trow"><div id="tabs"></div><button id="mode">✓ 完成</button></div>
+ <div class="eo" id="etb"><button id="addpart">＋ 新增部分</button><button id="cut">✂ 分楷</button><button id="sec">⋯ 段落設定</button><span id="pal"><span class="sc">鼓</span><button class="pb t-drum" title="鼓邊"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"></path></svg></button><button class="pb t-drum sel" title="鼓心"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor"></circle></svg></button><button class="pb t-drum" title="擂鼓"><svg class="roll" viewBox="0 0 24 24" preserveAspectRatio="none"><path d="M0 12Q6 3 12 12T24 12" stroke="currentColor" stroke-width="3" fill="none" vector-effect="non-scaling-stroke"></path></svg></button><span class="sc">鈸</span><button class="pb t-cym sel" title="開音"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.6"></circle><circle cx="12" cy="12" r="3.6" fill="currentColor"></circle></svg></button><button class="pb t-cym" title="按音"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="3"></circle></svg></button></span><span id="hint">點格子輸入；點小節號碼加筆記</span></div>
+</div>
+<div class="leg"><span style="color:var(--drum)"><i data-s="X"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"></path></svg></i>鼓邊</span><span style="color:var(--drum)"><i data-s="●"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor"></circle></svg></i>鼓心</span><span style="color:var(--drum)"><i data-s="≈"><svg class="roll" viewBox="0 0 24 24" preserveAspectRatio="none"><path d="M0 12Q6 3 12 12T24 12" stroke="currentColor" stroke-width="3" fill="none" vector-effect="non-scaling-stroke"></path></svg></i>擂鼓</span><span style="color:var(--cym)"><i data-s="◎"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.6"></circle><circle cx="12" cy="12" r="3.6" fill="currentColor"></circle></svg></i>開音</span><span style="color:var(--cym)"><i data-s="○"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="3"></circle></svg></i>按音</span></div>
+<div id="parts"></div>
+</main>
+<div id="tp"><div class="in">
+ <button id="play" aria-label="播放整段">▶</button>
+ <label class="tg"><input type="checkbox" id="loop" checked=""><i></i><span>循環</span></label>
+ <label class="tg dr"><input type="checkbox" data-tr="drum" checked=""><i></i><span>鼓</span></label>
+ <label class="tg cy"><input type="checkbox" data-tr="cym" checked=""><i></i><span>鈸</span></label>
+ <label style="font-size:.85rem;color:var(--mut)">速度 <input type="range" id="spd" min="40" max="150" value="100"> <b id="spdv" style="color:var(--fg)">100%</b></label>
+</div></div>
+<script id="seed" type="application/json">{"v":1791008249426,"D":[{"name":"叩頭","parts":[{"name":"叩頭","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}}]},{"name":"第一段","parts":[{"name":"大鼓","bpm":130,"beats":24,"sub":4,"note":"","drum":["●","","●","●","●","","●","","●","","","","●","","","","●","","","","●","","●","","●","","","","●","","●","","●","","●","●","●","","●","","●","","","","●","","●","","●","","","","","","●","","●","","","","●","","●","","●","","","","●","","","","●","","","","●","","","","●","","","","●","","","","●","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","◎","","","","◎","","◎","","◎","","","","◎","","◎","","◎","","","","◎","","◎","","◎","","","","◎","","◎","","◎","","","","","","","","◎","","","","◎","","◎","","◎","","","","◎","","","","◎","","","","◎","","","","◎","","","","◎","","","","◎","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"三星","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"三拙","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"七星","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}}]},{"name":"第二段","parts":[{"name":"大鼓","bpm":130,"beats":24,"sub":4,"note":"暫由 GarageBand 譜抄入：上方音記為鼓、下方音記為鈸；打法待確認。","drum":["●","","●","●","●","","●","","●","","","","●","","","","●","","","","●","","●","","●","","","","●","","●","","●","","●","●","●","","●","","●","","","","●","","●","","●","","","","","","●","","●","","","","●","","●","","●","","","","●","","","","●","","","","●","","","","●","","","","●","","","","●","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","◎","","","","◎","","◎","","◎","","","","◎","","◎","","◎","","","","◎","","◎","","◎","","","","◎","","◎","","◎","","","","","","","","◎","","","","◎","","◎","","◎","","","","◎","","","","◎","","","","◎","","","","◎","","","","◎","","","","◎","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"眨眼","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"三星","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"中展","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"三星","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"下展","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}}]},{"name":"第三段","parts":[{"name":"大鼓","bpm":130,"beats":24,"sub":4,"note":"暫由 GarageBand 譜抄入：上方音記為鼓、下方音記為鈸；打法待確認。","drum":["●","","●","●","●","","●","","●","","","","●","","","","●","","","","●","","●","","●","","","","●","","●","","●","","●","●","●","","●","","●","","","","●","","●","","●","","","","","","●","","●","","","","●","","●","","●","","","","●","","","","●","","","","●","","","","●","","","","●","","","","●","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","◎","","","","◎","","◎","","◎","","","","◎","","◎","","◎","","","","◎","","◎","","◎","","","","◎","","◎","","◎","","","","","","","","◎","","","","◎","","◎","","◎","","","","◎","","","","◎","","","","◎","","","","◎","","","","◎","","","","◎","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"半展","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"柔鼓","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"三星","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}},{"name":"探步","bpm":130,"beats":8,"sub":4,"note":"","drum":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cym":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],"cuts":[0],"cn":{},"bpb":4,"bn":[],"kn":{}}]}]}</script>
+<dialog id="md"><div id="mb"></div><div class="st" id="mf" style="margin-top:12px;justify-content:flex-end"></div></dialog>
+<dialog id="dlg"><p style="margin-top:0">複製下面文字發給隊友，對方貼上並按「匯入」（會取代現有全部內容）。</p>
+<textarea id="json" rows="10"></textarea>
+<div class="st" style="margin-top:8px"><button id="cp">複製</button><button id="imp" class="chip a">匯入</button><button id="cl">關閉</button></div></dialog>
+<script>
+
+
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const TR=[{id:'drum',name:'鼓',cls:'dr',syms:['X','●','≈']},{id:'cym',name:'鈸',cls:'cy',syms:['◎','○']}];
+const SV={'X':'<svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/></svg>','●':'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor"/></svg>','◎':'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="12" cy="12" r="3.6" fill="currentColor"/></svg>','○':'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="3"/></svg>'};
+SV['≈']='<svg class="roll" viewBox="0 0 24 24" preserveAspectRatio="none"><path d="M0 12Q6 3 12 12T24 12" stroke="currentColor" stroke-width="3" fill="none" vector-effect="non-scaling-stroke"/></svg>';
+const KEY='lion-drum-v3';
+const mkP=(n,o)=>Object.assign({name:n,bpm:130,beats:8,sub:4,note:'',drum:[],cym:[],cuts:[0],cn:{},bpb:4,bn:[]},o||{});
+const fit=p=>{const n=p.beats*p.sub;TR.forEach(t=>p[t.id]=Array.from({length:n},(_,i)=>(p[t.id]||[])[i]||''));p.cuts=[...new Set([0,...(p.cuts||[]).filter(c=>c>0&&c<n)])].sort((a,b)=>a-b);p.cn=p.cn||{};p.kn=p.kn||{};p.bpb=p.bpb||4;p.bn=p.bn||[]};
+function dagu(){const B=[[[0,'u'],[2,'u'],[3,'u'],[4,'u'],[6,'u'],[8,'u'],[12,'u']],[[0,'c'],[4,'c'],[6,'c'],[8,'c'],[12,'c'],[14,'c']],[[0,'c'],[2,'u'],[3,'u'],[4,'c'],[6,'c'],[8,'c'],[12,'c'],[14,'c']],[[0,'c'],[6,'u'],[8,'c'],[12,'c'],[14,'c']],[[0,'c'],[4,'c'],[8,'c'],[12,'c']],[[0,'c'],[4,'c'],[8,'c']]];
+ const p=mkP('大鼓',{beats:24,note:'暫由 GarageBand 譜抄入：上方音記為鼓、下方音記為鈸；打法待確認。'});fit(p);
+ B.forEach((b,i)=>b.forEach(([k,c])=>{p.drum[i*16+k]='●';if(c==='c')p.cym[i*16+k]='◎'}));return p}
+const E=n=>mkP(n);
+let D,cur=0,on={drum:true,cym:true},cutMode=false,playing=false;
+const SEED=(()=>{try{return JSON.parse($('#seed').textContent)||{}}catch(e){return{}}})();
+let st=null;try{st=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+if(Array.isArray(st))st={v:SEED.v||0,D:st};
+D=(SEED.D&&(!st||st.v!==SEED.v))?SEED.D:(st&&st.D);
+if(!Array.isArray(D)||!D.length)D=[{name:'叩頭',parts:[E('叩頭')]},
+ {name:'第一段',parts:[dagu(),E('三星'),E('三拙'),E('七星')]},
+ {name:'第二段',parts:[dagu(),E('眨眼'),E('三星'),E('中展'),E('三星'),E('下展')]},
+ {name:'第三段',parts:[dagu(),E('半展'),E('柔鼓'),E('三星'),E('探步')]}];
+D.forEach(s=>s.parts.forEach(fit));
+const S=()=>D[cur],save=()=>{try{localStorage.setItem(KEY,JSON.stringify({v:SEED.v||0,D}))}catch(e){}};
+const segs=p=>p.cuts.map((a,i)=>({a,b:p.cuts[i+1]??p.beats*p.sub,name:p.cn[a]||''}));
+
+/* audio */
+let ctx,nbuf;
+function A(){if(!ctx){ctx=new(window.AudioContext||window.webkitAudioContext)();nbuf=ctx.createBuffer(1,ctx.sampleRate,ctx.sampleRate);const d=nbuf.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1}if(ctx.state==='suspended')ctx.resume();return ctx}
+function noise(t,ty,f,q,g,d){const s=ctx.createBufferSource();s.buffer=nbuf;const fl=ctx.createBiquadFilter();fl.type=ty;fl.frequency.value=f;fl.Q.value=q;const v=ctx.createGain();v.gain.setValueAtTime(g,t);v.gain.exponentialRampToValueAtTime(.001,t+d);s.connect(fl);fl.connect(v);v.connect(ctx.destination);s.start(t);s.stop(t+d+.05)}
+function tone(t,f0,f1,g,d,ty){const o=ctx.createOscillator();o.type=ty||'sine';o.frequency.setValueAtTime(f0,t);o.frequency.exponentialRampToValueAtTime(f1,t+d*.6);const v=ctx.createGain();v.gain.setValueAtTime(g,t);v.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(v);v.connect(ctx.destination);o.start(t);o.stop(t+d+.05)}
+function hit(y,t,d){
+ if(y==='≈'){d=d||.12;const k=Math.max(2,Math.round(d/.06));for(let i=0;i<k;i++){const tt=t+i*d/k;tone(tt,150,65,.5,.14);noise(tt,'lowpass',500,1,.15,.05)}return}
+ if(y==='●'){tone(t,170,55,1,.45);noise(t,'lowpass',600,1,.3,.1)}
+ else if(y==='X'){noise(t,'highpass',2500,1,.7,.07);tone(t,420,300,.35,.08,'triangle')}
+ else if(y==='◎'){noise(t,'bandpass',5500,.7,.6,1.3);[3100,4300,5200].forEach(f=>tone(t,f,f*.98,.08,1.1,'square'))}
+ else if(y==='○'){noise(t,'bandpass',4200,.8,.6,.12)}}
+
+/* scheduler：播放清單由多個 {p,a,b}（部分、起格、終格）組成 */
+let timer,raf,list,li,nS,nT,q=[],endT=null,lastRow=null;
+const spd=()=>$('#spd').value/100;
+function sched(){
+ while(nT<ctx.currentTime+.12&&endT===null){
+  const g=list[li],p=S().parts[g.p];
+  TR.forEach(t=>{const y=p[t.id][nS];if(y&&on[t.id])hit(y,nT,60/(p.bpm*spd())/p.sub)});
+  q.push({p:g.p,s:nS,t:nT});nT+=60/(p.bpm*spd())/p.sub;nS++;
+  if(nS>=g.b){li++;if(li>=list.length){if($('#loop').checked)li=0;else{endT=nT;break}}nS=list[li].a}}
+ if(endT!==null&&ctx.currentTime>=endT)stop()}
+function frame(){let m=null;while(q.length&&q[0].t<=ctx.currentTime)m=q.shift();if(m)mark(m.p,m.s);if(playing)raf=requestAnimationFrame(frame)}
+function mark(p,s){unmark();const cs=$$('[data-p="'+p+'"][data-s="'+s+'"]');cs.forEach(c=>c.classList.add('on'));
+ const card=$$('.part')[p];if(card)card.classList.add('pl');
+ const row=cs[0]&&cs[0].closest('.sys');if(row&&row!==lastRow){lastRow=row;row.scrollIntoView({behavior:'smooth',block:'center'})}}
+function unmark(){$$('.on').forEach(c=>c.classList.remove('on'));$$('.pl').forEach(c=>c.classList.remove('pl'))}
+function go(l){stop();A();list=l;li=0;nS=l[0].a;playing=true;nT=ctx.currentTime+.08;endT=null;q=[];lastRow=null;timer=setInterval(sched,25);sched();raf=requestAnimationFrame(frame);$('#play').textContent='■'}
+function stop(){playing=false;clearInterval(timer);cancelAnimationFrame(raf);q=[];unmark();$('#play').textContent='▶'}
+$('#play').onclick=()=>playing?stop():go(S().parts.map((p,i)=>({p:i,a:0,b:p.beats*p.sub})));
+document.addEventListener('keydown',e=>{if(e.code==='Space'&&!/INPUT|TEXTAREA|SELECT|BUTTON/.test(e.target.tagName)){e.preventDefault();$('#play').click()}});
+
+/* render */
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+$$('.leg i').forEach(i=>{i.innerHTML=SV[i.dataset.s]});
+const md=$('#md'),isView=()=>document.body.classList.contains('view');
+function modal(html,btns){$('#mb').innerHTML=html;const f=$('#mf');f.innerHTML='';btns.forEach(b=>{const x=document.createElement('button');x.textContent=b.t;if(b.cls)x.className=b.cls;x.onclick=()=>{const r=b.fn?b.fn():0;if(r!==false)md.close()};f.appendChild(x)});if(!md.open)md.showModal()}
+const ask=(t,v,multi)=>new Promise(res=>{modal('<p style="margin-top:0">'+t+'</p>'+(multi?'<textarea id="mi" rows="4" style="width:100%;box-sizing:border-box"></textarea>':'<input id="mi" style="width:100%;box-sizing:border-box">'),[{t:'取消',fn:()=>res(null)},{t:'確定',cls:'chip a',fn:()=>res($('#mi').value)}]);$('#mi').value=v||'';$('#mi').focus()});
+const sure=m=>new Promise(res=>modal('<p style="margin-top:0">'+m+'</p>',[{t:'取消',fn:()=>res(false)},{t:'確定',cls:'chip a',fn:()=>res(true)}]));
+function tabs(){const t=$('#tabs');t.innerHTML='';
+ D.forEach((s,i)=>{const b=document.createElement('button');b.className='chip'+(i===cur?' a':'');b.textContent=s.name;b.onclick=()=>{stop();cur=i;all()};t.appendChild(b)});
+ const a=document.createElement('button');a.className='eo';a.textContent='＋';a.title='新段落';a.onclick=async()=>{const n=await ask('新段落名稱？','第四段');if(!n||!n.trim())return;stop();const p=E('大鼓');fit(p);D.push({name:n.trim(),parts:[p]});cur=D.length-1;save();all()};t.appendChild(a)}
+function parts(){
+ const root=$('#parts');root.innerHTML='';const w=root.clientWidth||340;
+ S().parts.forEach((p,pi)=>{
+  const sub=p.sub,bs=p.bpb*sub,rowN=Math.max(sub,Math.floor((w-70)/22/sub)*sub);
+  const card=document.createElement('div');card.className='card part';
+  let h='<div class="ph"><span class="no">'+(pi+1)+'</span><h3>'+esc(p.name)+'</h3><span class="meta">'+p.bpm+' BPM · '+Math.ceil(p.beats/p.bpb)+' 小節（每小節 '+p.bpb+' 拍）</span><button class="mini" data-act="pp" data-p="'+pi+'">▶ 只播這部分</button><button class="mini eo" data-act="set" data-p="'+pi+'">⚙ 設定</button></div>';
+  if(p.note)h+='<p class="pn">'+esc(p.note)+'</p>';
+  segs(p).forEach((g,gi)=>{
+   const kn=p.kn[g.a];
+   if(kn)h+='<div class="kn" data-act="kn" data-p="'+pi+'" data-a="'+g.a+'">📝 '+esc(kn)+'</div>';
+   h+='<div class="kh"><button class="mini" data-act="ps" data-p="'+pi+'" data-a="'+g.a+'">▶</button><b data-act="rn" data-p="'+pi+'" data-a="'+g.a+'">'+esc(g.name||'楷 '+(gi+1))+'</b></div>';
+   for(let a=g.a;a<g.b;a+=rowN){const b=Math.min(g.b,a+rowN);
+    const ns=p.bn.map(x=>({x,s:(x.f-1)*bs,e:x.t*bs})).filter(o=>o.e>a&&o.s<b);
+    if(ns.length){h+='<div class="nrow" style="--n:'+(b-a)+'">';ns.forEach((o,r)=>{const s0=Math.max(a,o.s),e0=Math.min(b,o.e);h+='<div class="nt" data-act="bn" data-p="'+pi+'" data-k="'+o.x.f+'" style="grid-column:'+(s0-a+2)+' / span '+(e0-s0)+';grid-row:'+(r+1)+'">'+(o.s>=a?'📝 '+(o.x.t>o.x.f?o.x.f+'–'+o.x.t:o.x.f)+'：'+esc(o.x.x):'↳')+'</div>'});h+='</div>'}
+    h+='<div class="sys" style="--n:'+(b-a)+'"><div style="grid-row:1"></div>';
+    for(let x=a;x<b;){const bi=Math.floor(x/bs),e=Math.min(b,(bi+1)*bs);h+='<div class="bh" data-act="bar" data-p="'+pi+'" data-k="'+(bi+1)+'" style="grid-column:span '+(e-x)+'">'+(bi+1)+'</div>';x=e}
+    h+='<div></div>';
+    for(let x=a;x<b;x++){const bt=x%sub===0;h+='<div class="sl'+(bt?' bt':'')+'" data-p="'+pi+'" data-s="'+x+'">'+(bt?Math.floor((x%bs)/sub)+1:'·')+'</div>'}
+    TR.forEach(t=>{h+='<div class="lab '+t.cls+'">'+t.name+'</div>';
+     for(let x=a;x<b;x++){const y=p[t.id][x];h+='<div class="c t-'+t.id+(x%bs===0||x===g.a?' bs':x%sub===0?' bt':'')+'" data-p="'+pi+'" data-s="'+x+'" data-t="'+t.id+'">'+(y?SV[y]:'')+'</div>'}});
+    h+='</div>'}});
+  card.innerHTML=h;root.appendChild(card)})}
+function all(){tabs();parts()}
+const brush={drum:'●',cym:'◎'},NAMES={'X':'鼓邊','●':'鼓心','≈':'擂鼓','◎':'開音','○':'按音'};
+function pal(){const e=$('#pal');e.innerHTML='';TR.forEach(t=>{const l=document.createElement('span');l.className='sc';l.textContent=t.name;e.appendChild(l);t.syms.forEach(y=>{const b=document.createElement('button');b.className='pb t-'+t.id+(brush[t.id]===y?' sel':'');b.innerHTML=SV[y];b.title=NAMES[y];b.onclick=()=>{brush[t.id]=y;pal()};e.appendChild(b)})})}
+function barNote(pi,k){const p=S().parts[pi],nb=Math.ceil(p.beats/p.bpb),ex=p.bn.find(x=>k>=x.f&&k<=x.t);
+ modal('<h3 style="margin:0 0 10px">小節筆記</h3><div class="st"><label>從第 <input type="number" id="n1" min="1" max="'+nb+'" value="'+(ex?ex.f:k)+'"> 小節</label><label>到第 <input type="number" id="n2" min="1" max="'+nb+'" value="'+(ex?ex.t:k)+'"> 小節</label></div><textarea id="n3" rows="3" placeholder="例如：大聲" style="width:100%;box-sizing:border-box;margin-top:8px">'+esc(ex?ex.x:'')+'</textarea>',
+ [{t:'取消'}].concat(ex?[{t:'刪除',fn:()=>{p.bn.splice(p.bn.indexOf(ex),1);save();parts()}}]:[],[{t:'確定',cls:'chip a',fn:()=>{const f=Math.max(1,Math.min(nb,+$('#n1').value||k)),t=Math.max(f,Math.min(nb,+$('#n2').value||f)),x=$('#n3').value.trim();if(ex)p.bn.splice(p.bn.indexOf(ex),1);if(x)p.bn.push({f,t,x});p.bn.sort((a,b)=>a.f-b.f);save();parts()}}]))}
+async function pubSeed(){let art=null;try{art=window.claude&&await claude.use('artifact')}catch(e){}
+ if(!art)return modal('<p style="margin-top:0">只有作者本人，在發佈後的頁面才能使用這個功能。</p>',[{t:'好'}]);
+ stop();$('#seed').textContent=JSON.stringify({v:Date.now(),D}).replace(/</g,'\\u003c');
+ const cl=document.documentElement.cloneNode(true);['#parts','#tabs','#mb','#mf'].forEach(q=>cl.querySelector(q).innerHTML='');cl.querySelector('body').removeAttribute('class');
+ modal('<p style="margin-top:0">發佈中…</p>',[]);
+ try{await art.publish('<!DOCTYPE html>\n'+cl.outerHTML);md.close()}catch(e){modal('<p style="margin-top:0">發佈失敗（'+esc(e.code||e.message||'未知')+'）。仍可用「匯出」分享。</p>',[{t:'好'}])}}
+
+$('#parts').addEventListener('click',async e=>{
+ const c=e.target.closest('.c'),el=e.target.closest('[data-act]');
+ if(c){if(isView())return;const pi=+c.dataset.p,s=+c.dataset.s,p=S().parts[pi];
+  if(cutMode){if(s>0){const i=p.cuts.indexOf(s);if(i>=0)p.cuts.splice(i,1);else{p.cuts.push(s);p.cuts.sort((a,b)=>a-b)}save();stop();parts()}return}
+  const t=TR.find(x=>x.id===c.dataset.t),b=brush[t.id],y=p[t.id][s]===b?'':b;
+  p[t.id][s]=y;c.innerHTML=y?SV[y]:'';if(y){A();hit(y,ctx.currentTime)}save();return}
+ if(!el)return;const a=el.dataset.act,pi=+el.dataset.p,p=S().parts[pi],st=+el.dataset.a;
+ if(a==='pp')go([{p:pi,a:0,b:p.beats*p.sub}]);
+ else if(a==='ps'){const g=segs(p).find(x=>x.a===st);go([{p:pi,a:g.a,b:g.b}])}
+ else if(isView())return;
+ else if(a==='rn'){const n=await ask('這一楷叫甚麼？',p.cn[st]);if(n!==null){if(n.trim())p.cn[st]=n.trim();else delete p.cn[st];save();parts()}}
+ else if(a==='kn'){const n=await ask('這一楷的筆記（留空會刪除）',p.kn[st],true);if(n!==null){if(n.trim())p.kn[st]=n.trim();else delete p.kn[st];save();parts()}}
+ else if(a==='set')openPart(pi);
+ else if(a==='bar'||a==='bn')barNote(pi,+el.dataset.k)});
+function openPart(pi){const p=S().parts[pi],B=(x,t)=>'<button data-x="'+x+'" data-p="'+pi+'">'+t+'</button>';
+ modal('<h3 style="margin:0 0 10px">部分設定</h3><div class="st"><label>名稱 <input id="f1" value="'+esc(p.name)+'"></label><label>速度 <input type="number" id="f2" value="'+p.bpm+'" min="30" max="240"> BPM</label><label>總拍數 <input type="number" id="f3" value="'+p.beats+'" min="1" max="128"></label><label>每小節 <input type="number" id="f6" value="'+p.bpb+'" min="1" max="12"> 拍</label><label>每拍分 <select id="f4">'+[1,2,3,4].map(x=>'<option'+(x===p.sub?' selected':'')+'>'+x+'</option>').join('')+'</select> 格</label></div><label style="display:block;margin-top:8px;font-size:.85rem;color:var(--mut)">備註（顯示在標題下）<textarea id="f5" rows="2" style="width:100%;box-sizing:border-box">'+esc(p.note)+'</textarea></label><div class="st" style="margin-top:12px">'+B('up','↑ 上移')+B('dn','↓ 下移')+B('dup','複製')+B('rmc','取消分楷')+B('clr','清空鼓點')+B('del','刪除')+'</div>',
+ [{t:'完成',cls:'chip a',fn:()=>{stop();const n=+$('#f4').value,o=p.sub;
+  if(n!==o){const rs=a=>{const r=Array(p.beats*n).fill('');a.forEach((y,i)=>{if(y){const j=Math.round(i/o*n);if(j<r.length&&!r[j])r[j]=y}});return r},mp=m=>{const r={};Object.keys(m).forEach(k=>r[Math.round(k/o*n)]=m[k]);return r};
+   p.drum=rs(p.drum);p.cym=rs(p.cym);p.cuts=p.cuts.map(c=>Math.round(c/o*n));p.cn=mp(p.cn);p.kn=mp(p.kn);p.sub=n}
+  p.name=$('#f1').value.trim()||p.name;p.bpm=Math.max(30,Math.min(240,+$('#f2').value||130));p.beats=Math.max(1,Math.min(128,+$('#f3').value||1));p.note=$('#f5').value;p.bpb=Math.max(1,Math.min(12,+$('#f6').value||4));fit(p);save();parts()}}])}
+$('#mb').addEventListener('click',async e=>{const b=e.target.closest('[data-x]');if(!b)return;const x=b.dataset.x,pi=+b.dataset.p,P=S().parts,p=P[pi];stop();
+ if(x==='rensec'){const n=await ask('段落名稱？',S().name);if(n&&n.trim()){S().name=n.trim();save();tabs()}}
+ else if(x==='delsec'){if(D.length<2){md.close();return}if(await sure('刪除整個「'+S().name+'」？')){D.splice(cur,1);cur=0;save();all()}}
+ else if(x==='pub'){md.close();pubSeed()}
+ else if(x==='io'){md.close();$('#json').value=JSON.stringify(D);$('#cp').textContent='複製';$('#dlg').showModal()}
+ else if(x==='clr'){if(await sure('清空「'+p.name+'」的鼓點？')){TR.forEach(t=>p[t.id]=p[t.id].map(()=>''));save();parts()}}
+ else if(x==='del'){if(P.length<2){md.close();return}if(await sure('刪除「'+p.name+'」？')){P.splice(pi,1);save();parts()}}
+ else{md.close();
+  if(x==='up'&&pi>0)[P[pi-1],P[pi]]=[P[pi],P[pi-1]];
+  else if(x==='dn'&&pi<P.length-1)[P[pi+1],P[pi]]=[P[pi],P[pi+1]];
+  else if(x==='dup'){const c=JSON.parse(JSON.stringify(p));c.name+=' (複製)';P.splice(pi+1,0,c)}
+  else if(x==='rmc'){p.cuts=[0];p.cn={};p.kn={}}
+  save();parts()}});
+$('#addpart').onclick=async()=>{const n=await ask('新部分名稱？（例如：三星）');if(!n||!n.trim())return;stop();const p=E(n.trim());fit(p);S().parts.push(p);save();parts()};
+$('#sec').onclick=()=>modal('<h3 style="margin:0 0 10px">段落設定：'+esc(S().name)+'</h3><div class="st"><button data-x="rensec">重新命名段落</button><button data-x="delsec">刪除段落</button><button data-x="pub">📤 發佈給同學</button><button data-x="io">匯出／匯入備份</button></div>',[{t:'關閉'}]);
+function setCut(v){cutMode=v;document.body.classList.toggle('cutting',v);$('#cut').classList.toggle('on-cut',v);$('#hint').textContent=v?'點任何一格，就在那裡分出新的一楷；再點取消':'點格子輸入；點小節號碼加筆記'}
+$('#cut').onclick=()=>setCut(!cutMode);
+$('#mode').onclick=()=>{const v=document.body.classList.toggle('view');$('#mode').textContent=v?'✎ 編輯':'✓ 完成';if(v)setCut(false)};
+document.body.classList.add('view');pal();setCut(false);
+$$('[data-tr]').forEach(i=>i.onchange=e=>on[i.dataset.tr]=e.target.checked);
+$('#spd').oninput=e=>$('#spdv').textContent=e.target.value+'%';
+$('#cl').onclick=()=>$('#dlg').close();
+$('#cp').onclick=async()=>{try{await navigator.clipboard.writeText($('#json').value)}catch(e){$('#json').select();document.execCommand('copy')}$('#cp').textContent='已複製 ✓'};
+$('#imp').onclick=()=>{try{const d=JSON.parse($('#json').value);if(!Array.isArray(d)||!d.length||!d.every(s=>Array.isArray(s.parts)))throw 0;d.forEach(s=>s.parts.forEach(fit));stop();D=d;cur=0;save();all();$('#dlg').close()}catch(e){md.showModal();modal('<p>格式不正確，無法匯入</p>',[{t:'好'}])}};
+let lw=0;new ResizeObserver(()=>{const w=$('#parts').clientWidth;if(Math.abs(w-lw)>30){lw=w;parts()}}).observe($('#parts'));
+all();
+</script></body></html>
